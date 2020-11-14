@@ -6,7 +6,7 @@
             </div>
         
               <div class="card-body">
-                <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <form [formGroup]="registerForm" (ngSubmit)="register(data)" #data=ngForm>
                   <div class="form-group">
                     <label for="name">Name</label>
                     <input
@@ -75,6 +75,10 @@
                   <button class="btn btn-primary btn-block" [disabled]="registerForm.invalid">Register</button>
                 </form>
             </div>
+            <div class="card-footer">
+              <div id="register-result"></div>
+            </div>
+          
         </div>
     </div>
 </div>

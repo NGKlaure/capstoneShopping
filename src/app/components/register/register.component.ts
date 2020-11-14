@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { RegisterService } from 'src/app/services/register.service';
+import { NgForm } from '@angular/forms';
 
 /**
  *
@@ -42,7 +44,10 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(private builder: FormBuilder) { }
+  constructor(
+    private builder: FormBuilder,
+    private userRegister:RegisterService
+    ) { }
 
  
 
@@ -62,8 +67,25 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  register() {
-    console.log(this.registerForm.value)
+  register(nf:NgForm) {
+    //console.log(this.registerForm.value)
+    this.userRegister.addUserToDB(nf.value)
+    console.log('user is added')
+    document.getElementById('register-result').innerHTML=" Successfull register"
   }
+
+ /*  adduser(nf:NgForm){
+   
+    console.log('user is added')
+    this.dt.addUserToDB(nf.value)
+  } */
+  /* this.productService.create(product).then((result: IProduct) => {
+    if (result === undefined) {
+      this.error = true;
+    } else {
+      this.error = false;
+      this.createdProduct.emit(result);
+    }
+  }); */
 
 }

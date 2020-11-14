@@ -12,7 +12,10 @@ export const wishlistUrl='http://localhost:3000/wishlists' */
 export const productsUrl='/api/products'
 export const cartUrl='/api/carts'
 export const wishlistUrl='/api/wishlists'
+export const userUrl='/api/users'
 
 //cd to server.js location
 //To run  with proxy config file use: node server.js
 //Then run: ng serve --proxy-config proxy.config.json
+
+//https://www.techiediaries.com/angular/angular-9-reactive-forms-validation-tutorial-example/

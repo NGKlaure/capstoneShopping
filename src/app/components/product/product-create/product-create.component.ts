@@ -44,7 +44,9 @@ export class ProductCreateComponent implements OnInit {
       } else {
         this.error = false;
         this.createdProduct.emit(result);
+        
       }
+      
     });
   }
 

@@ -6,7 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 const routes: Routes = [
-  {path:'',redirectTo:'/admin', pathMatch:'full'},
+  {path:'',redirectTo:'/login', pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'shop',component:ShoppingCartComponent},

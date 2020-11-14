@@ -15,6 +15,9 @@ var CARTS_COLLECTION = "carts";
 
 // The carts collection
 var WISHLISTS_COLLECTION = "wishlists";
+
+// The users collection
+var USERS_COLLECTION = "users";
 // Create new instance of the express server
 var app = express();
 
@@ -113,7 +116,7 @@ app.post("/api/products", function (req, res) {
 app.get("/api/products", function (req, res) {
     database.collection(PRODUCTS_COLLECTION).find({}).toArray(function (error, data) {
         if (error) {
-            manageError(res, err.message, "Failed to get contacts.");
+            manageError(res, err.message, "Failed to get product.");
         } else {
             res.status(200).json(data);
         }
@@ -143,7 +146,7 @@ app.post("/api/carts", function (req, res) {
 app.get("/api/carts", function (req, res) {
     database.collection(CARTS_COLLECTION).find({}).toArray(function (error, data) {
         if (error) {
-            manageError(res, err.message, "Failed to get contacts.");
+            manageError(res, err.message, "Failed to get cart.");
         } else {
             res.status(200).json(data);
         }
@@ -174,7 +177,7 @@ app.post("/api/wishlists", function (req, res) {
 app.get("/api/wishlists", function (req, res) {
     database.collection(WISHLISTS_COLLECTION).find({}).toArray(function (error, data) {
         if (error) {
-            manageError(res, err.message, "Failed to get contacts.");
+            manageError(res, err.message, "Failed to get product.");
         } else {
             res.status(200).json(data);
         }
@@ -214,4 +217,48 @@ app.delete("/api/carts/:id", function (req, res) {
         }
     });
 
+});
+
+/*  "/api/users"
+ *   POST: add new user to db
+ */
+app.post("/api/users", function (req, res) {
+    var user = req.body;
+
+        database.collection(USERS_COLLECTION).insertOne(user, function (err, doc) {
+            if (err) {
+                manageError(res, err.message, "Failed to create new user.");
+            } else {
+                res.status(201).json(doc.ops[0]);
+            }
+        });
+    
+});
+
+/*  "/api/users"
+ *  GET: finds all Users
+ */
+app.get("/api/users", function (req, res) {
+    database.collection(USERS_COLLECTION).find({}).toArray(function (error, data) {
+        if (error) {
+            manageError(res, err.message, "Failed to get user.");
+        } else {
+            res.status(200).json(data);
+        }
+    });
+});
+
+/*  "/api/user with username and password"
+ *  GET: finds all Users
+ */
+app.get("/api/users/:username", function (req, res) {
+    var uname= req.params.username
+    var pass= req.params.password
+    database.collection(USERS_COLLECTION).getUser({uname}).toArray(function (error, data) {
+        if (error) {
+            manageError(res, err.message, "Failed to get user.");
+        } else {
+            res.status(200).json(data);
+        }
+    });
 });
