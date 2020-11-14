@@ -1,0 +1,37 @@
+<h4 class="text-center bg-primary">Products List:</h4>
+
+<table *ngIf="products.length > 0" class="table table-responsive ">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image URL</th>
+            <th scope="col">price</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.imageUrl}}</td>
+            <td>{{ product.price }}</td>
+            <td> <button type="button" class="btn btn-sm btn-outline-secondary product-btn"
+                (click)="update(product._id)">Update</button> 
+            </td>
+            <td> <button type="button" class="btn btn-sm btn-primary product-btn"
+                (click)="delete(product._id)">Delete</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="products.length === 0" class="alert alert-info" role="info">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Information:</span>
+    The product collection is empty.
+</div>

@@ -1,5 +1,7 @@
 <div class="cart-item">
     <span>{{cartItem.productName}}</span> x <span>{{cartItem.qty}}</span>: 
         <strong> {{(cartItem.qty * cartItem.price)|currency:'USD'}}</strong>
+        <button type="button" class="btn btn-sm btn-primary product-btn"
+         (click)="handleDeleteFromCart()">Delete</button> 
 </div>
 

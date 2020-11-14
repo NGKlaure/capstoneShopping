@@ -8,3 +8,25 @@
 .product-btn{
     font-size: small;
 }
+.fa-heart{
+    color:palevioletred ;
+    cursor: pointer;
+}
+.guest-form-card{
+    text-transform: uppercase;
+    font-size: medium;
+}
+.guest-form-card label{
+    
+    font-size: small;
+}
+
+.card-header{
+    background-color: rgb(74, 99, 238);
+    color: #66FCF1;
+    font-size: 0.9rem;
+}
+.container{
+    background-color: rgb(241, 246, 247);
+}
+
