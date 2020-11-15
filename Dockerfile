@@ -4,7 +4,7 @@ FROM node:10
 # Maintainer name
 LABEL maintainer="nadinegadjou@gmail.com"
 # Copying angular folder from local directory to Educative directory
-COPY /home/ubuntu/testdocker
+COPY angular /home/ubuntu
 # Installing Angular cli and node modules in angular directory
 RUN     npm install -g @angular/cli &&\
         cd /home/ubuntu/testdocker &&\
