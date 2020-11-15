@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/services/register.service';
 import { NgForm } from '@angular/forms';
+import { Router } from  '@angular/router';
 
 /**
  *
@@ -46,7 +47,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private builder: FormBuilder,
-    private userRegister:RegisterService
+    private userRegister:RegisterService,
+    private router: Router
     ) { }
 
  
@@ -72,6 +74,7 @@ export class RegisterComponent implements OnInit {
     this.userRegister.addUserToDB(nf.value)
     console.log('user is added')
     document.getElementById('register-result').innerHTML=" Successfull register"
+    this.router.navigateByUrl('/login');
   }
 
  /*  adduser(nf:NgForm){

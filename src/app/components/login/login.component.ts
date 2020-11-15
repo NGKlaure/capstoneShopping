@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private builder: FormBuilder,
     private authService: AuthService,
-     private router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +38,6 @@ export class LoginComponent implements OnInit {
       return;
     }  */
     //this.authService.getlogin();
-    this.router.navigateByUrl('/admin');
+    this.router.navigateByUrl('/shop');
   }
 }

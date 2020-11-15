@@ -123,6 +123,13 @@ app.get("/api/products", function (req, res) {
     });
 });
 
+app.put('/api/produts/:id',(req,res)=>{ 
+    var data = req.body
+    var id =req.params.id
+    collection.updateOne({id:id},{$set:data})
+        res.send('record is udated')   
+})
+
 
 /*  "/api/carts"
  *   POST: add product to cart
