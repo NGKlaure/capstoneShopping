@@ -2,12 +2,12 @@
 # Base image
 FROM node:10
 # Maintainer name
-LABEL maintainer="amar@amar.io"
+LABEL maintainer="nadinegadjou@gmail.com"
 # Copying angular folder from local directory to Educative directory
-COPY angular /usr/local/educative/angular
+COPY /home/ubuntu/testdocker
 # Installing Angular cli and node modules in angular directory
 RUN     npm install -g @angular/cli &&\
-        cd /usr/local/educative/angular &&\
+        cd /home/ubuntu/testdocker &&\
         npm i
         RUN ng build –prod
 EXPOSE 3000
